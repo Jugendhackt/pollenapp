@@ -29,12 +29,62 @@ def abswind(raster, radius, pollenwert):
                 raster[r1][r2] += pollenwert
     return raster
 
+def windwinkel(raster, wind, windstaerke, pollenwert, winkelgrenze):
+
+    for p1 in range(len(raster)):
+        for p2 in range(len(raster)):
+            va = []
+            vb = []
+
+            va.append(wind[0])
+            va.append( wind[1])
+
+            vb.append(p1 - windstaerke)
+            vb.append(p2 - windstaerke)
+
+            zwischen1 = va[0] * vb[0] + va[1] * vb[1]
+            zwischen2 = pow(va[0], 2) + pow(va[1], 2)
+            zwischen3 = pow(vb[0], 2) + pow(vb[1], 2)
+
+            zwischen2 = math.sqrt(zwischen2)
+            zwischen3 = math.sqrt(zwischen3)
+            if (zwischen2 * zwischen3) == 0:
+                continue
+            else:
+                zwischen4 = min(zwischen1/(zwischen2 * zwischen3), 1)
+                zwischen4 = max(zwischen4, -1)
+                erg = math.acos(zwischen4)
+            if erg > winkelgrenze:
+                if raster[p1][p2] > 0:
+                    raster[p1][p2] -= pollenwert
+    return raster
+
+
+
+wind = [3,3]
+pollenwert = 0.5
 
 
 
 raster = rastererstellen(windstaerke)
+
+for reihe in raster:
+    print(reihe)
+print()
 for radius in range(windstaerke, 0, -1):
-    raster2 = abswind(raster, radius, 1)
+    raster = abswind(raster, radius, 1)
+for spalte in raster:
+    print(spalte)
+print()
+print(raster)
+for grenze in range(20, 17, -1):
+    grenze = math.pi / grenze
+    raster = windwinkel(raster, wind, windstaerke, pollenwert, grenze)
+    print(grenze)
+
+for x in range(len(raster)):
+    for y in range(len(raster)):
+        raster[x][y] = round(raster[x][y], 2)
 
 for spalte in raster:
     print(spalte)
