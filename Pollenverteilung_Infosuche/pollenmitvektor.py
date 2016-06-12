@@ -1,6 +1,9 @@
 import math
+import riesenmatrix as rim
+import wind as wind
 
 windstaerke = 5
+
 
 
 def rastererstellen(windstaerke):
@@ -60,31 +63,36 @@ def windwinkel(raster, wind, windstaerke, pollenwert, winkelgrenze):
     return raster
 
 
+def baumstempel():
+    pollenwert = 0.3
+    with open('text.txt') as f:
 
-wind = [3,3]
-pollenwert = 0.5
+        xein = f.readline()
+        yein = f.readline()
+        while xein and yein:
+
+            auswind = wind.windabruf()
+            windstaerke = int(auswind[1])
+            windv = auswind[0]
+            raster = rastererstellen(windstaerke)
 
 
 
-raster = rastererstellen(windstaerke)
 
-for reihe in raster:
-    print(reihe)
-print()
-for radius in range(windstaerke, 0, -1):
-    raster = abswind(raster, radius, 1)
-for spalte in raster:
-    print(spalte)
-print()
-print(raster)
-for grenze in range(20, 17, -1):
-    grenze = math.pi / grenze
-    raster = windwinkel(raster, wind, windstaerke, pollenwert, grenze)
-    print(grenze)
+            for radius in range(windstaerke, 0, -1):
+                raster = abswind(raster, radius, 1)
 
-for x in range(len(raster)):
-    for y in range(len(raster)):
-        raster[x][y] = round(raster[x][y], 2)
 
-for spalte in raster:
-    print(spalte)
+            for grenze in range(15, 12, -1):
+                grenze = math.pi / grenze
+                raster = windwinkel(raster, windv, windstaerke, pollenwert, grenze)
+
+            for x in range(len(raster)):
+                for y in range(len(raster)):
+                    raster[x][y] = round(raster[x][y], 2)
+            xein = f.readline()
+            yein = f.readline()
+
+
+baumstempel()
+
