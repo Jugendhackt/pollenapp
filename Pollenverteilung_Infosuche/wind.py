@@ -7,7 +7,6 @@ def windabruf():
     quelltext = seite.text
     erg = re.findall('(Nordost|Nordwest|Süldost|Südwest|West|Nord|Ost|S&uumld)', str(quelltext))
     erg2 = re.findall('[0-9]* km', str(quelltext))
-    print(erg2)
     erg2[0] = re.sub(" km","", erg2[0])
     z = 0
     for x in erg2:

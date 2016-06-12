@@ -3,8 +3,8 @@ from copy import deepcopy
 latWien = 10000
 lonWien = 15000
 
-xrMatrix =10
-yrMatrix = 10
+xrMatrix =1000
+yrMatrix = 1000
 rMatrix = []
 baumMatrix = [[1,2,3],[1,2,3],[55,6,5]]
 xBaum = 3
@@ -28,7 +28,6 @@ def matrixplus(xBaum, yBaum, matrixBaum, rMatrix):
     for x in range(len(matrixBaum)):
         for y in range(len(matrixBaum)):
             rMatrix[startx][starty] += matrixBaum[x][y]
-            print(rMatrix)
             startx += 1
         startx = xKopie
         starty += 1
@@ -36,5 +35,4 @@ def matrixplus(xBaum, yBaum, matrixBaum, rMatrix):
 
 matrix = matrixErstellen()
 matrix = matrixplus(xBaum,yBaum,baumMatrix,matrix)
-print(matrix)
 
