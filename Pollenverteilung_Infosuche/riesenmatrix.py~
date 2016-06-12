@@ -3,8 +3,8 @@ from copy import deepcopy
 latWien = 10000
 lonWien = 15000
 
-xrMatrix =3200
-yrMatrix = 2000
+xrMatrix =1000
+yrMatrix = 1000
 rMatrix = []
 baumMatrix = [[1,2,3],[1,2,3],[55,6,5]]
 xBaum = 3
