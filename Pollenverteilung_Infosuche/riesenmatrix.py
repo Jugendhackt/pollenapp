@@ -3,14 +3,15 @@ from copy import deepcopy
 latWien = 10000
 lonWien = 15000
 
-xrMatrix =3200
-yrMatrix = 2000
-rMatrix = []
+xrMatrix =500
+yrMatrix = 500
+
 baumMatrix = [[1,2,3],[1,2,3],[55,6,5]]
 xBaum = 3
 yBaum = 4
 
 def matrixErstellen():
+    rMatrix = []
     for x in range(xrMatrix):
         einzel = []
         for y in range(yrMatrix):

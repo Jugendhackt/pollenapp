@@ -1,6 +1,7 @@
 import math
 import riesenmatrix as rim
 import wind as wind
+import pollenkarte as poka
 
 windstaerke = 5
 
@@ -94,7 +95,22 @@ def baumstempel():
 
             riesenmatrix_f = rim.matrixplus(int(xein), int(yein), raster, riesenmatrix_f)
             xein = f.readline()
+
             yein = f.readline()
+    for x in range(len(riesenmatrix_f)):
+        for y in range(len(riesenmatrix_f[0])):
+            riesenmatrix_f[x][y] = int(riesenmatrix_f[x][y])
+    maxim = 0
+    for x in range(len(riesenmatrix_f)):
+        for y in range(len(riesenmatrix_f)):
+            if maxim < riesenmatrix_f[x][y]:
+                maxim = riesenmatrix_f[x][y]
+
+    for x in range(len(riesenmatrix_f)):
+        for y in range(len(riesenmatrix_f)):
+            riesenmatrix_f[x][y] = int(riesenmatrix_f[x][y] * 255 / maxim * 0.75)
+
+    poka.erzeuge_pollenkarte(riesenmatrix_f)
 
 
 baumstempel()
