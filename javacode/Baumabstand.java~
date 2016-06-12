@@ -17,7 +17,7 @@ public static PrintWriter karte;
 
 	public static void main(String[] args) throws IOException {
 	
-		 BufferedReader in = new BufferedReader(new FileReader("Suchergebnis.csv"));
+		 BufferedReader in = new BufferedReader(new FileReader("test2.txt"));
 		 //dokument l,b
 		
 karte = new PrintWriter(new FileWriter ("karte"));
