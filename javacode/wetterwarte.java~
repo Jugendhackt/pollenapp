@@ -9,8 +9,8 @@ import java.io.PrintWriter;
 public class wetterwarte {
 public static double l = 16.3;
 public static double b = 48.2;
-public static double h = 2000;
-public static double w = 3200;
+public static double h = 450;
+public static double w = 600;
 public static double x;
 public static double y;
 public static PrintWriter warten;

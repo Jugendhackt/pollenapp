@@ -9,8 +9,8 @@ import java.io.PrintWriter;
 public class Baumabstand {
 public static double l;
 public static double b;
-public static double h = 450; //VERAENDERN!!
-public static double w = 600;
+public static double h = 2000; //VERAENDERN!!
+public static double w = 3200;
 public static int x;
 public static int y;
 public static PrintWriter karte;
