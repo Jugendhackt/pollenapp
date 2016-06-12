@@ -67,7 +67,7 @@ def windwinkel(raster, wind, windstaerke, pollenwert, winkelgrenze):
 def baumstempel():
     pollenwert = 0.3
     riesenmatrix_f = rim.matrixErstellen()
-    with open('text.txt') as f:
+    with open('karte') as f:
 
         xein = int(f.readline())
         yein = int(f.readline())
